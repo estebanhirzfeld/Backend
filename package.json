@@ -19,5 +19,8 @@
   "homepage": "https://github.com/estebanhirzfeld/Backend#readme",
   "devDependencies": {
     "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "rxjs": "^7.5.4"
   }
 }
