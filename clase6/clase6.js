@@ -51,4 +51,4 @@ let Product1 = new Product('Producto 1', 100, 'imagen1');
 guardar(Product1)
 leer()
 
-borrar()
+// borrar()
