@@ -54,9 +54,9 @@ const borrar = async () => {
     }
 }
 
-let Product1 = new Product('Producto 1', 100, 'imagen1');
+let Product1 = new Product('Lapiz', 100.00, 'https://cdn3.iconfinder.com/data/icons/education-209/64/pencil-pen-stationery-school-256.png');
 
 guardar(Product1)
-leer()
+// leer()
 
 // borrar()
