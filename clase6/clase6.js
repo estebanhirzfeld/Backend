@@ -29,8 +29,12 @@ const guardar = async (product) => {
 }
 const leer = async () => {
     try{
-        await fs.promises.readFile('ProductList.txt', 'utf-8');
-        console.log(productList);
+        if(fs.existsSync('ProductList.txt')){
+            await fs.promises.readFile('ProductList.txt', 'utf-8');
+            console.log(productList);
+        } else {
+            console.log("Error al leer, no se encontro el archivo")
+        }
     }
     catch (err){
         console.log("no se pudo leer el archivo" + err);
@@ -38,8 +42,12 @@ const leer = async () => {
 }
 const borrar = async () => {
     try{
-        await fs.promises.unlink('ProductList.txt');
-        console.log('Archivo borrado');
+        if(fs.existsSync('ProductList.txt')){
+            await fs.promises.unlink('ProductList.txt');
+            console.log('Archivo borrado');
+        } else {
+            console.log('Error al borrar, no se encontro el archivo');
+        }
     }
     catch (err){
         console.log("no se pudo borrar el archivo" + err);
