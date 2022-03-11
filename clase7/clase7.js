@@ -3,11 +3,6 @@ import fs from 'fs';
 
 let products = JSON.parse(fs.readFileSync('../clase6/ProductList.txt', 'utf-8'))
 
-const randomNumber = (min,max) => {
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-// Endpoint Home page
-let randomItem = randomNumber(1, products.length + 1 );
 
 let viewsCounter = [];
 
@@ -17,19 +12,26 @@ const server = app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}, visit http://localhost:${PORT}`);
 });
 
+const randomNumber = (min, max) => {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+let randomItem = randomNumber(1, products.length + 1);
 
 app.get('/', (req, res) => {
+    randomItem = randomNumber(1, products.length + 1)
     res.send(
-    `
-    Welcome to the Home page!<hr>
-    <a href="/items">Products</a> <hr>
-    <a href="items/${randomItem}"><button><span>Random Item</span></button></a>
+        `
+        Welcome to the Home page!<hr>
+        <a href="/items">Products</a> <hr>
+        <a href="items/${randomItem}"><button><span>Random Item</span></button></a>
 
     `);
 })
 
 // Endpoint Item List
-app.get('/items', (req, res) => {;
+app.get('/items', (req, res) => {
+    ;
     res.send(`
     Products List: ${products.length} <hr>
     ${products.map(product =>
